@@ -57,9 +57,10 @@ public class IndexController implements Serializable {
                     System.out.println("EXISTE 12345");
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
                     redireccion = "AdminInicio.xhtml?faces-redirect=true";
-                }else if("Empleado".equals(u.getTipoUs())){
-                     System.out.println("EXISTE 1234 ejm");
-                     
+                } else if ("Empleado".equals(u.getTipoUs())) {
+                    System.out.println("EXISTE 1234 ejm");
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
+                    redireccion = "InicioEmpleado.xhtml?faces-redirect=true";
                 }
 
             } else {

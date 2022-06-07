@@ -69,17 +69,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <li class="nav-item">
                             <a class="nav-link" href="usuarioCRUD.xhtml">Usuarios</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ListarClientes.xhtml">Lista</a>
+                        </li>
+
                     </ul>
                     <h:form> <p:commandButton  icon="pi-sign-out" value="Cerrar Sesion" actionListener="#{cerrarS.cerrarSesion()}"  />
                     </h:form>
                 </div>
             </div>
         </nav>
+        <br></br>
         <div class="linea"></div>
-        <div class="linea"></div><!-- <div class="linea"></div> --><div class="linea"></div>
-        <div class="linea"></div><!--  -->
-        
-        <h:form id="form" style="width: 50vw; margin-left : 25vw;">
+        <h1>CLIENTES</h1>
+
+        <h:form id="form1" style="width: 50vw; margin-left : 25vw;">
             <p:dataTable value="#{listadoClientes}" var="prod" paginator="true" filteredValue="#{listadoClientes}" emptyMessage="NO EXISTE REGISTRO" paginatorPosition="top" >
                 <p:column headerText="Codigo" filterBy="#{prod.id}"  filterMatchMode="contains" >
                     <h:outputText value="#{prod.id}"/>
@@ -98,6 +102,74 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </p:column>
                 <p:column headerText="Contraseña" filterBy="#{prod.contrasenia}"  filterMatchMode="contains">
                     <h:outputText value="#{prod.contrasenia}"/>
+                </p:column>
+                <p:column headerText="Telefono" filterBy="#{prod.telefono}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.telefono}"/>
+                </p:column>
+                <p:column headerText="Direccion" filterBy="#{prod.direccion}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.direccion}"/>
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>
+        <div class="linea"></div>
+        <h1>PRODUCTOS</h1>
+        <h:form id="form2" style="width: 50vw; margin-left : 25vw;">
+            <p:dataTable value="#{listadoProductos}" var="prod" paginator="true" filteredValue="#{listadoProductos}" emptyMessage="NO EXISTE REGISTRO" paginatorPosition="top" >
+                <p:column headerText="Codigo" filterBy="#{prod.id}"  filterMatchMode="contains" >
+                    <h:outputText value="#{prod.id}"/>
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{prod.nombre}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.nombre}"/>
+                </p:column>
+                <p:column headerText="Descripcion" filterBy="#{prod.descripcion}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.descripcion}"/>
+                </p:column>
+                <p:column headerText="Marca" filterBy="#{prod.marca}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.marca}"/>
+                </p:column>
+                <p:column headerText="Stock" filterBy="#{prod.stock}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.stock}"/>
+                </p:column>
+                <p:column headerText="Estado" filterBy="#{prod.estado}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.estado}"/>
+                </p:column>
+                <p:column headerText="Precio" filterBy="#{prod.precio}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.precio}"/>
+                </p:column>
+                <p:column headerText="Sucursal" filterBy="#{prod.sucursal.correo}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.sucursal.correo}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+        <div class="linea"></div>
+        <h1>USUARIOS</h1>
+
+        <h:form id="form3" style="width: 50vw; margin-left : 25vw;">
+            <p:dataTable value="#{listadoUsuarios}" var="prod" paginator="true" filteredValue="#{listadoUsuarios}" emptyMessage="NO EXISTE REGISTRO" paginatorPosition="top" >
+                <p:column headerText="Codigo" filterBy="#{prod.id}"  filterMatchMode="contains" >
+                    <h:outputText value="#{prod.id}"/>
+                </p:column>
+                <p:column headerText="Cedula" filterBy="#{prod.cedula}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.cedula}"/>
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{prod.nombre}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.nombre}"/>
+                </p:column>
+                <p:column headerText="Apellido" filterBy="#{prod.apellido}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.apellido}"/>
+                </p:column>
+                <p:column headerText="Correo" filterBy="#{prod.correo}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.correo}"/>
+                </p:column>
+                <p:column headerText="Contraseña" filterBy="#{prod.contrasenia}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.contrasenia}"/>
+                </p:column>
+                <p:column headerText="Tipo Usuario" filterBy="#{prod.tipoUs}"  filterMatchMode="contains">
+                    <h:outputText value="#{prod.tipoUs}"/>
                 </p:column>
                 <p:column headerText="Telefono" filterBy="#{prod.telefono}"  filterMatchMode="contains">
                     <h:outputText value="#{prod.telefono}"/>

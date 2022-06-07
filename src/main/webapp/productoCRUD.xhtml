@@ -19,6 +19,36 @@
                 padding: 0;
                 margin: 20px auto 0 auto;
             }
+            /* menu desplegable */
+
+#menu ul ul {
+ display:none;
+ position:absolute;
+ top:100%;
+ left:0;
+ background:#eee;
+ padding:0;
+}
+
+/* items del menu desplegable */
+
+#menu ul ul li {
+ float:none;
+ width:150px
+}
+
+/* enlaces de los items del menu desplegable */
+
+#menu ul ul a {
+ line-height:120%;
+ padding:10px 15px;
+}
+
+/* items del menu desplegable al pasar el ratón */
+
+#menu ul li:hover > ul {
+ display:block;
+}
         </style>
     </h:head>
 
@@ -50,6 +80,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="usuarioCRUD.xhtml">Usuarios</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ListarClientes.xhtml">Lista</a>
+                        </li>
+
                     </ul>
                    <h:form> <p:commandButton  icon="pi-sign-out" value="Cerrar Sesion" actionListener="#{cerrarS.cerrarSesion()}"  />
                     </h:form>
