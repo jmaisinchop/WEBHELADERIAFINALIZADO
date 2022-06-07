@@ -36,6 +36,12 @@ public class FacturaFacade extends AbstractFacade<Factura>{
                 .setParameter("id", id)
                 .getSingleResult();
     }
+       public Cliente buscarClientePorCedula(String cedula) {
+        //return em.find(Producto.class, id);
+        return em.createQuery("select c from Cliente c  where c.cedula=:cedula", Cliente.class)
+                .setParameter("cedula", cedula)
+                .getSingleResult();
+    }
      
     
     public Producto buscarProductoPorId(Long codigo) {
@@ -60,5 +66,9 @@ public class FacturaFacade extends AbstractFacade<Factura>{
         String jpql = "SELECT u FROM Factura u WHERE u.codigoFactura = '" + codigo + "'";
         Factura factura = (Factura) em.createQuery(jpql).getSingleResult();
         return factura;
+    }
+
+    public Cliente guardarFactura(String cedula) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

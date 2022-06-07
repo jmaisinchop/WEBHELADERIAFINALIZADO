@@ -59,7 +59,7 @@ public class FacturaBean implements Serializable {
     private String nombreCliente;
     private String direccionCliente;
     private String numeroTelfonoC;
-
+    private String cedula;
     //Datos del detalle factura
     private int cantidad;
     private double precio;
@@ -258,6 +258,15 @@ public class FacturaBean implements Serializable {
         this.detallesvista = detallesvista;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    
     public void loadDetalles() {
         Factura f = facturaFacade.getCodigo(codigoFactura);
         detallesvista = f.getDetalles();
@@ -268,7 +277,8 @@ public class FacturaBean implements Serializable {
     }
 
     public void buscarCliente() {
-        cliente = facturaFacade.buscarClientePorId(idCliente);
+        cliente = facturaFacade.buscarClientePorCedula(cedula);
+        idCliente=(int) cliente.getId();
         try {
             if (cliente != null) {
                 System.out.println("Entra en buscar ");
