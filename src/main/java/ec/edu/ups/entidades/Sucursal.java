@@ -5,6 +5,7 @@
 package ec.edu.ups.entidades;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,7 +37,7 @@ public class Sucursal implements Serializable {
     private String ciudad;
     private String correo;
     @ManyToOne
-    @JoinColumn(nullable = true)
+    @JoinColumn(nullable = true, name = "entidad_principal_id")
     private EntidadPrincipal entidadPrincipal;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursal")
