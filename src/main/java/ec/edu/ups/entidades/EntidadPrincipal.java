@@ -21,7 +21,7 @@ import java.util.Set;
  *
  * @author Jonny,Daniel,Elvis,Edisson
  */
-@Entity
+@Entity(name = "Entidad_Principal")
 
 public class EntidadPrincipal implements Serializable {
 
