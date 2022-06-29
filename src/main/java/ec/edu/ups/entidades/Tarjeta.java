@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.entidades;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +27,20 @@ public class Tarjeta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
+    @Column(name = "nombre_Titular")
     private String nombreTitular;
+    
+    @Column(name = "num_Tarjeta")
     private int numTarjeta;
+    
+    @Column(name = "fecha_Cducidad")
     private LocalDate fechaCducidad;
+    
+    @Column(name = "codigo_Cvv")
     private int codigoCvv;
+    
+    @Column(name = "tipo")
     private String tipo;
     @ManyToOne
     @JoinColumn(nullable = true)
