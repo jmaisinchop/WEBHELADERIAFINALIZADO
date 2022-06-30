@@ -34,7 +34,7 @@ public class EntidadpFacade extends AbstractFacade<EntidadPrincipal> {
         return em;
     }
     public List<EntidadPrincipal> listar() {
-        return em.createQuery("SELECT u FROM  EntidadPrincipal u", EntidadPrincipal.class).getResultList();
+        return em.createQuery("SELECT u FROM  Entidad_Principal u", EntidadPrincipal.class).getResultList();
     }
     
     public void guardar(EntidadPrincipal categoria) {

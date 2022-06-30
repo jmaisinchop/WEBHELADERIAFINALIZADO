@@ -36,6 +36,7 @@ public class Producto implements Serializable {
     private int stock;
     private String estado;
     private Double precio;
+    @Transient
     private int cantidad;
     private int stockTotal;
    
