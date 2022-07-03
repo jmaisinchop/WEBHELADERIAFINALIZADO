@@ -42,6 +42,7 @@ public class Tarjeta implements Serializable {
     
     @Column(name = "tipo")
     private String tipo;
+    
     @ManyToOne
     @JoinColumn(nullable = true)
     private Cliente cliente;

@@ -32,6 +32,7 @@ public class FacturaDetalle implements Serializable{
     //private Factura factura;
     
     public FacturaDetalle() {
+        
     }
 
     public FacturaDetalle(Long id, int cantidad, double precio, String descripcion, double totalXproducto) {

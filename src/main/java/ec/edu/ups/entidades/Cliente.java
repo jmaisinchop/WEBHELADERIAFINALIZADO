@@ -6,6 +6,7 @@ package ec.edu.ups.entidades;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,6 +20,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -42,11 +44,9 @@ public class Cliente implements Serializable {
     private String contrasenia;
     private String telefono;
     private String direccion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-    private Set<Pedido> pedidos = new HashSet<Pedido>();
-    
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-    private Set<Tarjeta> tarjeta = new HashSet<Tarjeta>();
+   
+   @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Tarjeta> tarjetas;
 
     @Transient
     private boolean editable;
@@ -134,22 +134,15 @@ public class Cliente implements Serializable {
         this.direccion = direccion;
     }
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
+    public List<Tarjeta> getTarjetas() {
+        return tarjetas;
     }
 
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
+    public void setTarjetas(List<Tarjeta> tarjetas) {
+        this.tarjetas = tarjetas;
     }
 
-    public Set<Tarjeta> getTarjeta() {
-        return tarjeta;
-    }
-
-    public void setTarjeta(Set<Tarjeta> tarjeta) {
-        this.tarjeta = tarjeta;
-    }
-    
+ 
 
     public boolean isEditable() {
         return editable;
@@ -161,7 +154,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrasenia=" + contrasenia + ", telefono=" + telefono + ", direccion=" + direccion + ", pedidos=" + pedidos + ", tarjeta=" + tarjeta + '}';
+        return "Cliente{" + "id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrasenia=" + contrasenia + ", telefono=" + telefono + ", direccion=" + direccion + '}';
     }
 
     
