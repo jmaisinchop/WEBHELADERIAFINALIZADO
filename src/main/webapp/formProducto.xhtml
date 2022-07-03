@@ -42,8 +42,15 @@
                     <h:outputLabel value="Sucursal" for="sucursal"/>
                     <h:selectOneMenu id="sucursal" value="#{productoBeans.producto.sucursal}" required="true" requiredMessage="Seleccione una sucursal">
                         <f:selectItem itemLabel="--- Seleccione una Sucursal ---" itemValue="#{null}"/>
-                        <f:selectItems value="#{listadoSucursales}" var="su" itemLabel="#{su.ciudad}"/>
+                        <f:selectItems value="#{listadoSucursales}" var="su" itemLabel="#{su.nombre}"/>
                         <f:converter binding="#{sucursalConverter}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="Categoria" for="categoria"/>
+                    <h:selectOneMenu id="categoria" value="#{productoBeans.producto.categorias}" required="true" requiredMessage="Seleccione una Categoria">
+                        <f:selectItem itemLabel="--- Seleccione una Categoria ---" itemValue="#{null}"/>
+                        <f:selectItems value="#{listadoCategorias}" var="su" itemLabel="#{su.nombre}"/>
+                        <f:converter binding="#{CategoriaConverter}"/>
                     </h:selectOneMenu>
 
 

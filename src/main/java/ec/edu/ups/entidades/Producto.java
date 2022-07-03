@@ -44,12 +44,15 @@ public class Producto implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = true)
     private Sucursal sucursal;
+     @ManyToOne
+    @JoinColumn(nullable = true)
+    private Categorias categorias;
 
     public Producto() {
 
     }
 
-    public Producto(long id, String nombre, String descripcion, String marca, int stock, String estado, Double precio, int cantidad, int stockTotal, Sucursal sucursal) {
+    public Producto(long id, String nombre, String descripcion, String marca, int stock, String estado, Double precio, int cantidad, int stockTotal, Sucursal sucursal, Categorias categorias) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -60,6 +63,7 @@ public class Producto implements Serializable {
         this.cantidad = cantidad;
         this.stockTotal = stockTotal;
         this.sucursal = sucursal;
+        this.categorias = categorias;
     }
     
 
@@ -143,10 +147,21 @@ public class Producto implements Serializable {
         this.stockTotal = stockTotal;
     }
 
+    public Categorias getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + ", stock=" + stock + ", estado=" + estado + ", precio=" + precio + ", cantidad=" + cantidad + ", stockTotal=" + stockTotal + ", sucursal=" + sucursal + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + ", stock=" + stock + ", estado=" + estado + ", precio=" + precio + ", cantidad=" + cantidad + ", stockTotal=" + stockTotal + ", sucursal=" + sucursal + ", categorias=" + categorias + '}';
     }
+    
+
+    
 
     
    

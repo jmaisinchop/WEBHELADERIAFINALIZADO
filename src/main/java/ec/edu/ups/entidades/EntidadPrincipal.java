@@ -35,6 +35,8 @@ public class EntidadPrincipal implements Serializable {
     private String direccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "entidadPrincipal")
     private Set<Sucursal> sucursal = new HashSet<Sucursal>();
+    
+    
    
 
     public EntidadPrincipal() {

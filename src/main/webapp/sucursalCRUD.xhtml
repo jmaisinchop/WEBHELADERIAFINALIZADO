@@ -67,10 +67,15 @@
                                         <f:facet name="header">Id</f:facet>
                                             #{prod.id}
                                     </h:column>
+                                     <h:column>
+                                        <f:facet name="header">Nombre</f:facet>
+
+                                        <h:outputText value="#{prod.nombre}"  />
+                                    </h:column>
                                     <h:column>
                                         <f:facet name="header">Teléfono</f:facet>
 
-                                        <h:outputText value="#{prod.direccion}"  />
+                                        <h:outputText value="#{prod.telefono}"  />
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Dirección</f:facet>
@@ -86,6 +91,16 @@
                                         <f:facet name="header">Correo</f:facet>
 
                                         <h:outputText value="#{prod.correo}"  />
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">Longitud</f:facet>
+
+                                        <h:outputText value="#{prod.longitud}"  />
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">Latitud</f:facet>
+
+                                        <h:outputText value="#{prod.latitud}"  />
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header"> NombreEntidad </f:facet>

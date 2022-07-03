@@ -32,30 +32,40 @@ public class Sucursal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nombre;
     private String telefono;
     private String direccion;
     private String ciudad;
     private String correo;
+    private double latitud;
+    private double longitud;
     @ManyToOne
     @JoinColumn(nullable = true, name = "entidad_principal_id")
     private EntidadPrincipal entidadPrincipal;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursal")
     private Set<Producto> productos = new HashSet<Producto>();
+    
+     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursal")
+    private Set<Categorias> categorias = new HashSet<Categorias>();
 
     public Sucursal() {
         super();
     }
 
-    public Sucursal(long id, String telefono, String direccion, String ciudad, String correo) {
-        super();
-        this.setId(id);
-        this.setTelefono(telefono);
-        this.setDireccion(direccion);
-        this.setCiudad(ciudad);
-        this.setCorreo(correo);
-
+    public Sucursal(Long id, String nombre, String telefono, String direccion, String ciudad, String correo, double latitud, double longitud, EntidadPrincipal entidadPrincipal) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.ciudad = ciudad;
+        this.correo = correo;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.entidadPrincipal = entidadPrincipal;
     }
+
+  
 
     public Long getId() {
         return id;
@@ -97,6 +107,31 @@ public class Sucursal implements Serializable {
         this.correo = correo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+    
+
     public EntidadPrincipal getEntidadPrincipal() {
         return entidadPrincipal;
     }
@@ -115,6 +150,16 @@ public class Sucursal implements Serializable {
         this.productos = productos;
     }
 
+    public Set<Categorias> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Set<Categorias> categorias) {
+        this.categorias = categorias;
+    }
+    
+    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -129,7 +174,9 @@ public class Sucursal implements Serializable {
 
     @Override
     public String toString() {
-        return "Sucursal{" + "id=" + id + ", telefono=" + telefono + ", direccion=" + direccion + ", ciudad=" + ciudad + ", correo=" + correo + '}';
+        return "Sucursal{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", ciudad=" + ciudad + ", correo=" + correo + ", latitud=" + latitud + ", longitud=" + longitud + '}';
     }
+
+  
 
 }

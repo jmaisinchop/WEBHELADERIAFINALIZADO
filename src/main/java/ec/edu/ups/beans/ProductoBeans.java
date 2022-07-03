@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.beans;
 
+import ec.edu.ups.entidades.Categorias;
 import ec.edu.ups.entidades.Producto;
 import ec.edu.ups.entidades.Sucursal;
 import ec.edu.ups.facade.ProductoFacade;
@@ -29,17 +30,18 @@ public class ProductoBeans implements Serializable {
     @EJB
     private ProductoFacade producFacade;
     private Producto producto;
-     private int totalP;
+    private int totalP;
     private Long id;
     private Sucursal sucursal;
+    private Categorias categorias;
 
-  
     @PostConstruct
     public void init() {
         this.producto = new Producto();
         this.sucursal = new Sucursal();
+        this.categorias = new Categorias();
     }
-    
+
     public Producto getProducto() {
         return producto;
     }
@@ -60,9 +62,16 @@ public class ProductoBeans implements Serializable {
         this.sucursal = sucursal;
     }
 
-    
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public Categorias getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
     }
 
     public Long getId() {
@@ -72,7 +81,7 @@ public class ProductoBeans implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     @Produces
     @RequestScoped
     @Named("listadoProductos")
@@ -81,24 +90,24 @@ public class ProductoBeans implements Serializable {
         return prod;
     }
 
-     public String guardar(){
+    public String guardar() {
         try {
             this.producFacade.guardar(producto);
             producto = new Producto();
-            
+
         } catch (Exception e) {
         }
         return "productoCRUD.xhtml?faces-redirect=true";
     }
-    
-    public String eliminar(Long id){
+
+    public String eliminar(Long id) {
         producFacade.eliminar(id);
         return "productoCRUD.xhtml?faces-redirect=true";
     }
-    
-    public String editar(Long id){
+
+    public String editar(Long id) {
         this.id = id;
-        
+
         if (id != null && id > 0) {
             producFacade.opcional(id).ifPresent(p -> {
                 this.producto = p;

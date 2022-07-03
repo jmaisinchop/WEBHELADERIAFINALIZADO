@@ -19,9 +19,10 @@
             <h:form>
                 <p:growl id="mensajes" showDetail="true" life="2000" />
                 <h:panelGrid columns="2">
-
-                    <h:outputLabel value="Telefono" for="Telefono"/>
-                    <h:inputText id="telefono" value="#{sucursalBeans.sucursal.telefono}" required="true" requiredMessage="Ingrese el telefono"/>
+                    <h:outputLabel value="Nombre" for="nombre"/>
+                    <h:inputText id="nombre" value="#{sucursalBeans.sucursal.nombre}" required="true" requiredMessage="Ingrese el Nombre"/>
+                    <h:outputLabel value="Telefono" for="telefono"/>
+                    <h:inputText id="telefono" value="#{sucursalBeans.sucursal.telefono}" required="true" requiredMessage="Ingrese el Telefono"/>
 
                     <h:outputLabel value="Direccion" for="direccion"/>
                     <h:inputText id="direccion" value="#{sucursalBeans.sucursal.direccion}" required="true" requiredMessage="Ingrese la direccion"/>
@@ -29,8 +30,11 @@
                     <h:outputLabel value="Ciudad" for="ciudad"/>
                     <h:inputText id="ciudad" value="#{sucursalBeans.sucursal.ciudad}" required="true" requiredMessage="Ingrese la  ciudad"/>
                     <h:outputLabel value="Correo" for="correo"/>
-
                     <h:inputText id="correo" value="#{sucursalBeans.sucursal.correo}" required="true" requiredMessage="Ingrese el correo"/>
+                    <h:outputLabel value="Latitud" for="latitud"/>
+                    <h:inputText id="latitud" value="#{sucursalBeans.sucursal.latitud}" required="true" requiredMessage="Ingrese la latitud"/>
+                    <h:outputLabel value="Longitud" for="longitud"/>
+                    <h:inputText id="longitud" value="#{sucursalBeans.sucursal.longitud}" required="true" requiredMessage="Ingrese la longitud"/>
 
 
                     <h:outputLabel value="Entidad" for="Enitdad"/>
