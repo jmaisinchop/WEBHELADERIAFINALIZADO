@@ -43,6 +43,9 @@ public class Pedido implements Serializable {
     private List<Detalle> detalles;
     @OneToOne
     private Tarjeta tarjeta;
+    
+    
+    
 
     public Pedido() {
     }

@@ -39,12 +39,11 @@ public class Producto implements Serializable {
     @Transient
     private int cantidad;
     private int stockTotal;
-   
-    
+
     @ManyToOne
     @JoinColumn(nullable = true)
     private Sucursal sucursal;
-     @ManyToOne
+    @ManyToOne
     @JoinColumn(nullable = true)
     private Categorias categorias;
 
@@ -65,7 +64,6 @@ public class Producto implements Serializable {
         this.sucursal = sucursal;
         this.categorias = categorias;
     }
-    
 
     public long getId() {
         return id;
@@ -159,10 +157,5 @@ public class Producto implements Serializable {
     public String toString() {
         return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + ", stock=" + stock + ", estado=" + estado + ", precio=" + precio + ", cantidad=" + cantidad + ", stockTotal=" + stockTotal + ", sucursal=" + sucursal + ", categorias=" + categorias + '}';
     }
-    
 
-    
-
-    
-   
 }
