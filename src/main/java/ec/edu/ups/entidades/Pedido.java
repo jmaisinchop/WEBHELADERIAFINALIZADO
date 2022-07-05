@@ -127,4 +127,9 @@ public class Pedido implements Serializable {
         this.tarjeta = tarjeta;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" + "id=" + id + ", cliente=" + cliente + ", latitud=" + latitud + ", longitud=" + longitud + ", estado=" + estado + ", costoEnvio=" + costoEnvio + ", detalles=" + detalles + ", tarjeta=" + tarjeta + '}';
+    }
+
 }
