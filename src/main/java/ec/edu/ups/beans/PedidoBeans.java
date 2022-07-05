@@ -122,12 +122,12 @@ public class PedidoBeans implements Serializable {
 
         } catch (Exception e) {
         }
-        return "PedidoCRUD.xhtml?faces-redirect=true";
+        return "pedidoCRUD.xhtml?faces-redirect=true";
     }
 
     public String eliminar(Long id) {
         pedidoFacade.eliminar(id);
-        return "PedidoCRUD.xhtml?faces-redirect=true";
+        return "pedidoCRUD.xhtml?faces-redirect=true";
     }
 
     public String editar(Long id) {

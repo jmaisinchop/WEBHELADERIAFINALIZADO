@@ -98,8 +98,8 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col col-md-4 ">
+            <div >
+                <div>
                     <h:form>
                         <h:outputText value="No existen producto en la base de datos!" rendered="#{empty listadoPedidos}"/>
                         <h:dataTable value="#{listadoPedidos}" var="prod" rendered="#{not empty listadoPedidos}"
@@ -114,26 +114,37 @@
                                 <h:outputText value="#{prod.cliente.nombre}"  />
                             </h:column>
                             <h:column>
-                                <f:facet name="header">Descripcion</f:facet>
+                                <f:facet name="header">costoEnvio</f:facet>
                                 <h:outputText value="#{prod.costoEnvio}"  />
                             </h:column>
                             <h:column>
-                                <f:facet name="header"> Marca </f:facet>
+                                <f:facet name="header"> estado </f:facet>
                                 <h:outputText value="#{prod.estado}"  />
                             </h:column>
                             <h:column>
-                                <f:facet name="header"> Stock </f:facet>
+                                <f:facet name="header"> latitud </f:facet>
                                 <h:outputText value="#{prod.latitud}"  />
                             </h:column>
                             <h:column>
-                                <f:facet name="header"> Estado </f:facet>
+                                <f:facet name="header"> longitud </f:facet>
                                 <h:outputText value="#{prod.longitud}" />
                             </h:column>
-                           
-
+                            <h:column>
+                                <f:facet name="header"> Detalles </f:facet>
+                                <h:outputText value="#{prod.detalles}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> total </f:facet>
+                                <h:outputText value="#{prod.total}" />
+                            </h:column>
+                             <h:column>
+                                <f:facet name="header"> tarjeta </f:facet>
+                                <h:outputText value="#{prod.tarjeta.numTarjeta}" />
+                            </h:column>
+     
 
                             <h:column>
-                                <f:facet name="header"> Editar </f:facet>
+                                <f:facet name="header"> Cambiar De Estado </f:facet>
                                 <h:commandLink value="Editar" action="#{pedidoBeans.editar(prod.id)}" />
                             </h:column>
                             <h:column>

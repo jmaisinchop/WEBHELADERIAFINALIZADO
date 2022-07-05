@@ -27,7 +27,7 @@ import java.util.List;
 @NamedQuery(name = "getPedido", query = "SELECT pe FROM  Pedido pe")
 public class Pedido implements Serializable {
 
-     private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -41,6 +41,7 @@ public class Pedido implements Serializable {
     private double costoEnvio;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<Detalle> detalles;
+    private double total;
     @OneToOne
     private Tarjeta tarjeta;
     
@@ -50,7 +51,7 @@ public class Pedido implements Serializable {
     public Pedido() {
     }
 
-    public Pedido(long id, Cliente cliente, double latitud, double longitud, String estado, double costoEnvio, List<Detalle> detalles, Tarjeta tarjeta) {
+    public Pedido(long id, Cliente cliente, double latitud, double longitud, String estado, double costoEnvio, List<Detalle> detalles, double total, Tarjeta tarjeta) {
         this.id = id;
         this.cliente = cliente;
         this.latitud = latitud;
@@ -58,9 +59,11 @@ public class Pedido implements Serializable {
         this.estado = estado;
         this.costoEnvio = costoEnvio;
         this.detalles = detalles;
+        this.total = total;
         this.tarjeta = tarjeta;
     }
 
+  
 
 
     public long getId() {
@@ -127,9 +130,20 @@ public class Pedido implements Serializable {
         this.tarjeta = tarjeta;
     }
 
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
     @Override
     public String toString() {
-        return "Pedido{" + "id=" + id + ", cliente=" + cliente + ", latitud=" + latitud + ", longitud=" + longitud + ", estado=" + estado + ", costoEnvio=" + costoEnvio + ", detalles=" + detalles + ", tarjeta=" + tarjeta + '}';
+        return "Pedido{" + "id=" + id + ", cliente=" + cliente + ", latitud=" + latitud + ", longitud=" + longitud + ", estado=" + estado + ", costoEnvio=" + costoEnvio + ", detalles=" + detalles + ", total=" + total + ", tarjeta=" + tarjeta + '}';
     }
+    
+
+   
 
 }
