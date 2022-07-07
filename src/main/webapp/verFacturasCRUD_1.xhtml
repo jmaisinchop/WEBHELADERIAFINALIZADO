@@ -62,37 +62,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="AdminInicio.xhtml">Inicio</a>
+                       <li class="nav-item"><a class="nav-link" href="ListarClientes1.xhtml">Listar</a>
+                          
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="productoCRUD.xhtml">Productos</a>
+                            <a class="nav-link" href="clienteCRUD_1.xhtml">Clientes</a>
+                        </li>
+              
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="pedidoCRUD_1.xhtml">Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sucursalCRUD.xhtml">Sucursal</a>
+                            <a class="nav-link" href="verFacturasCRUD_1.xhtml">Faturas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="EntidadpCRUD.xhtml">Entidad</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="clienteCRUD.xhtml">Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="usuarioCRUD.xhtml">Usuarios</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="categoriaCRUD.xhtml">Categorias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pedidoCRUD.xhtml">Pedidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="verFacturasCRUD.xhtml">Faturas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ListarClientes.xhtml">Lista</a>
-                        </li>
-
                     </ul>
                    <h:form> <p:commandButton  icon="pi-sign-out" value="Cerrar Sesion" actionListener="#{cerrarS.cerrarSesion()}"  />
                     </h:form>
@@ -103,65 +86,44 @@
         <section>
             <div class="row justify-content-center">
                 <div class="col col-md-3 mt-md-4 mb-md-4">
-                    <h3 class="h3Sucursal">Pedidos</h3>
+                    <h3 class="h3Sucursal">Facturas</h3>
                 </div>
             </div>
 
-            <div >
-                <div>
+            <div class="row justify-content-center">
+                <div class="col col-md-4 ">
                     <h:form>
-                        <h:outputText value="No existen producto en la base de datos!" rendered="#{empty listadoPedidos}"/>
-                        <h:dataTable value="#{listadoPedidos}" var="prod" rendered="#{not empty listadoPedidos}"
+                        <h:outputText value="No existen Facturas en la base de datos!" rendered="#{empty listadoFacturas}"/>
+                        <h:dataTable value="#{listadoFacturas}" var="prod" rendered="#{not empty listadoFacturas}"
                                      headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
 
                             <h:column>
                                 <f:facet name="header">Id</f:facet>
                                     #{prod.id}
                             </h:column>
-                            <h:column>
-                                <f:facet name="header"> Nombre </f:facet>
-                                <h:outputText value="#{prod.cliente.nombre}"  />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">costoEnvio</f:facet>
-                                <h:outputText value="#{prod.costoEnvio}"  />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header"> estado </f:facet>
-                                <h:outputText value="#{prod.estado}"  />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header"> latitud </f:facet>
-                                <h:outputText value="#{prod.latitud}"  />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header"> longitud </f:facet>
-                                <h:outputText value="#{prod.longitud}" />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header"> total </f:facet>
-                                <h:outputText value="#{prod.total}" />
-                            </h:column>
                             
                             <h:column>
-                                <f:facet name="header"> Ver Detalles</f:facet>
-                                <h:commandButton value="Ver Datalles" action="#{pedidoBeans.verDeatalles(prod.id)}" />
-                            </h:column>
-                         
-                            <h:column>
-                                <f:facet name="header"> Cambiar De Estado </f:facet>
-                                <h:commandButton value="Cambiar Estado" action="#{pedidoBeans.editar(prod.id)}" />
+                                <f:facet name="header"> total </f:facet>
+                                <h:outputText value="#{prod.total}"  />
                             </h:column>
                             <h:column>
-                                <f:facet name="header"> Action </f:facet>
-
-                                <h:commandButton value="Eliminar" action="#{pedidoBeans.eliminar(prod.id)}" />
+                                <f:facet name="header">fecha</f:facet>
+                                <h:outputText value="#{prod.fecha}"  />
                             </h:column>
+                            <h:column>
+                                <f:facet name="header"> Marca </f:facet>
+                                <h:outputText value="#{prod.subtotal}"  />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> Stock </f:facet>
+                                <h:outputText value="#{prod.iva}"  />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> Usuario </f:facet>
+                                <h:outputText value="#{prod.pedido.cliente.nombre}" />
+                            </h:column>
+                           
                         </h:dataTable>
-
-
-
-                        
                     </h:form>                    
                 </div>
             </div>
