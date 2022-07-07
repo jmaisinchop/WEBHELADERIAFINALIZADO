@@ -36,9 +36,7 @@ public class Producto implements Serializable {
     private int stock;
     private String estado;
     private Double precio;
-    @Transient
-    private int cantidad;
-    private int stockTotal;
+ 
 
     @ManyToOne
     @JoinColumn(nullable = true)
@@ -51,7 +49,7 @@ public class Producto implements Serializable {
 
     }
 
-    public Producto(long id, String nombre, String descripcion, String marca, int stock, String estado, Double precio, int cantidad, int stockTotal, Sucursal sucursal, Categorias categorias) {
+    public Producto(long id, String nombre, String descripcion, String marca, int stock, String estado, Double precio, Sucursal sucursal, Categorias categorias) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -59,8 +57,7 @@ public class Producto implements Serializable {
         this.stock = stock;
         this.estado = estado;
         this.precio = precio;
-        this.cantidad = cantidad;
-        this.stockTotal = stockTotal;
+       
         this.sucursal = sucursal;
         this.categorias = categorias;
     }
@@ -129,21 +126,7 @@ public class Producto implements Serializable {
         this.sucursal = sucursal;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public int getStockTotal() {
-        return stockTotal;
-    }
-
-    public void setStockTotal(int stockTotal) {
-        this.stockTotal = stockTotal;
-    }
 
     public Categorias getCategorias() {
         return categorias;
@@ -155,7 +138,7 @@ public class Producto implements Serializable {
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + ", stock=" + stock + ", estado=" + estado + ", precio=" + precio + ", cantidad=" + cantidad + ", stockTotal=" + stockTotal + ", sucursal=" + sucursal + ", categorias=" + categorias + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + ", stock=" + stock + ", estado=" + estado + ", precio=" + precio +  ", sucursal=" + sucursal + ", categorias=" + categorias + '}';
     }
 
 }

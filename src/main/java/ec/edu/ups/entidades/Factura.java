@@ -31,27 +31,23 @@ public class Factura implements Serializable{
     private Date fecha;
     private double subtotal;
     private double iva;
-    private Sucursal sucursal;
+    @OneToOne
+    private Pedido pedido;
+  
     
-    @ManyToOne
-    @JoinColumn
-    private Cliente cliente;
-    
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<FacturaDetalle> detalles;
-    
+   
     public Factura() {
     }
 
-    public Factura(int id, double total, Date fecha, double subtotal, double iva, Sucursal sucursal, Cliente cliente, List<FacturaDetalle> detalles) {
+    public Factura(int id, double total, Date fecha, double subtotal, double iva, Pedido pedido) {
         this.id = id;
         this.total = total;
         this.fecha = fecha;
         this.subtotal = subtotal;
         this.iva = iva;
-        this.sucursal = sucursal;
-        this.cliente = cliente;
-        this.detalles = detalles;
+        this.pedido = pedido;
+       
+     
     }
 
     public int getId() {
@@ -94,33 +90,18 @@ public class Factura implements Serializable{
         this.iva = iva;
     }
 
-    public Sucursal getSucursal() {
-        return sucursal;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public List<FacturaDetalle> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<FacturaDetalle> detalles) {
-        this.detalles = detalles;
-    }
-
+   
     @Override
     public String toString() {
-        return "Factura{" + "id=" + id + ", total=" + total + ", fecha=" + fecha + ", subtotal=" + subtotal + ", iva=" + iva + ", sucursal=" + sucursal + ", cliente=" + cliente + ", detalles=" + detalles + '}';
+        return "Factura{" + "id=" + id + ", total=" + total + ", fecha=" + fecha + ", subtotal=" + subtotal + ", iva=" + iva + '}';
     }
     
 }

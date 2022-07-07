@@ -137,12 +137,7 @@
                                 <f:facet name="header"> total </f:facet>
                                 <h:outputText value="#{prod.total}" />
                             </h:column>
-                             <h:column>
-                                <f:facet name="header"> tarjeta </f:facet>
-                                <h:outputText value="#{prod.tarjeta.numTarjeta}" />
-                            </h:column>
-     
-
+                         
                             <h:column>
                                 <f:facet name="header"> Cambiar De Estado </f:facet>
                                 <h:commandLink value="Editar" action="#{pedidoBeans.editar(prod.id)}" />

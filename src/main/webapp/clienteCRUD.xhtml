@@ -97,38 +97,38 @@
                         #{prod.id}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">cedula</f:facet>
+                    <f:facet name="header">Cedula</f:facet>
                     <h:outputText value="#{prod.cedula}"  />
                 </h:column>
                 <h:column>
-                    <f:facet name="header">nombre</f:facet>
+                    <f:facet name="header">Nombre</f:facet>
 
                     <h:outputText value="#{prod.nombre}"/>
                 </h:column>
                 <h:column>
-                    <f:facet name="header">apellido</f:facet>
+                    <f:facet name="header">Apellido</f:facet>
 
                     <h:outputText value="#{prod.apellido}"  />
                 </h:column>
                 <h:column>
-                    <f:facet name="header">correo</f:facet>
+                    <f:facet name="header">Correo</f:facet>
 
                     <h:outputText value="#{prod.correo}"  />
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">contrasenia</f:facet>
+                    <f:facet name="header">Contraseña</f:facet>
 
                     <h:outputText value="#{prod.contrasenia}"  />
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">telefono</f:facet>
+                    <f:facet name="header">Telefono</f:facet>
 
                     <h:outputText value="#{prod.telefono}"  />
                 </h:column>
                 <h:column>
-                    <f:facet name="header">direccion</f:facet>
+                    <f:facet name="header">Direccion</f:facet>
 
                     <h:outputText value="#{prod.direccion}" />
                 </h:column>
@@ -137,7 +137,7 @@
                     <h:commandLink value="Editar" action="#{clienteBeans.editar(prod.id)}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header"> Action </f:facet>
+                    <f:facet name="header"> Eliminar </f:facet>
 
                     <h:commandLink value="Eliminar" action="#{clienteBeans.eliminar(prod.id)}" />
                 </h:column>
