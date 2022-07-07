@@ -42,9 +42,12 @@
                   
                     <h:outputLabel value="estado" for="estado"/>
                     <h:selectOneMenu   value="#{pedidoBeans.pedido.estado}" >
+                        <f:selectItem itemLabel="-----Seleccione---------- " />
                         <f:selectItem  itemValue="Aceptado" itemLabel="Aceptado" />
-                         <f:selectItem  itemValue="ENTREGADO " itemLabel="ENTREGADO " />
-                        <f:selectItem itemValue="Finalizado" itemLabel="Finalizado" />
+                         <f:selectItem  itemValue="Entregado " itemLabel="Entregado " />
+                        <f:selectItem itemValue="Enviando" itemLabel="Enviando" />
+                         <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
+                       
                        
                     </h:selectOneMenu>
 
