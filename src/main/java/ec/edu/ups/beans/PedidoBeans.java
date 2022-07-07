@@ -151,10 +151,11 @@ public class PedidoBeans implements Serializable {
     
     public void updateStock(Pedido pedido) {
         Pedido pedido1 = pedidoFacade.porId(pedido.getId());
-        if (pedido1.equals("Aceptado")) {
+        if (pedido.getEstado().equals("Aceptado")) {
 
-            System.out.println("el pedido ya esta en estado aseptado");
-        } else if (pedido.getEstado().equals("Aceptado")) {
+            System.out.println("el pedido ya esta en estado Aceptado");
+        } else if (!pedido.getEstado().equals("Aceptado")) {
+            
             List<Detalle> detalles = detalleFacade.findAll();
             for (int i = 0; i < detalles.size(); i++) {
                 Detalle d = detalles.get(i);
