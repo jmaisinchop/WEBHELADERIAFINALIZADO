@@ -6,9 +6,11 @@ package ec.edu.ups.beans;
 
 import ec.edu.ups.entidades.Categorias;
 import ec.edu.ups.entidades.Cliente;
+import ec.edu.ups.entidades.Detalle;
 import ec.edu.ups.entidades.Pedido;
 import ec.edu.ups.entidades.Producto;
 import ec.edu.ups.entidades.Sucursal;
+import ec.edu.ups.facade.DetalleFacade;
 import ec.edu.ups.facade.PedidoFacade;
 import ec.edu.ups.facade.ProductoFacade;
 import jakarta.annotation.PostConstruct;
@@ -32,6 +34,11 @@ public class PedidoBeans implements Serializable {
 
     @EJB
     private PedidoFacade pedidoFacade;
+    @EJB
+    private DetalleFacade detalleFacade;
+     @EJB
+    private ProductoFacade productoFacade ;
+    
     
     private Long id;
     private Pedido pedido;
@@ -118,6 +125,7 @@ public class PedidoBeans implements Serializable {
     public String guardar() {
         try {
             this.pedidoFacade.guardar(pedido);
+            updateStock(pedido);
             pedido = new Pedido();
 
         } catch (Exception e) {
@@ -139,5 +147,25 @@ public class PedidoBeans implements Serializable {
             });
         }
         return "formPedido.xhtml";
+    }
+    
+    public void updateStock(Pedido pedido) {
+        Pedido pedido1 = pedidoFacade.porId(pedido.getId());
+        if (pedido1.equals("Aceptado")) {
+
+            System.out.println("el pedido ya esta en estado aseptado");
+        } else if (pedido.getEstado().equals("Aceptado")) {
+            List<Detalle> detalles = detalleFacade.findAll();
+            for (int i = 0; i < detalles.size(); i++) {
+                Detalle d = detalles.get(i);
+                if (d.getPedido().getId() == pedido.getId()) {
+
+                    Producto p = productoFacade.porId(d.getProducto().getId());
+                    p.setStock(p.getStock() - detalles.get(i).getCantidad());
+                    productoFacade.edit(p);
+                }
+
+            }
+        }
     }
 }
