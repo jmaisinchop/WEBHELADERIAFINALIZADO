@@ -5,6 +5,7 @@
 package ec.edu.ups.facade;
 
 import ec.edu.ups.entidades.Detalle;
+import ec.edu.ups.entidades.Factura;
 import ec.edu.ups.entidades.Pedido;
 import ec.edu.ups.entidades.Producto;
 import jakarta.ejb.Stateless;
@@ -18,7 +19,7 @@ import java.util.Optional;
  * @author Gabus
  */
 @Stateless 
-public class DetalleFacade extends AbstractFacade<Detalle> {
+public class FacturaFacade extends AbstractFacade<Factura> {
     @PersistenceContext(name="TestJpa")
     private EntityManager em;
     
@@ -27,33 +28,33 @@ public class DetalleFacade extends AbstractFacade<Detalle> {
         return em;
     }
 
-    public DetalleFacade() {
-        super(Detalle.class);
+    public FacturaFacade() {
+        super(Factura.class);
     }
     
-    public List<Detalle> listar() {
-        return em.createQuery("select p from Detalle P", Detalle.class).getResultList();
+    public List<Factura> listar() {
+        return em.createQuery("select p from Factura P", Factura.class).getResultList();
     }
     
-    public void guardar(Pedido Pedido) {
+    public void guardar(Factura factura) {
        
-            em.merge(Pedido);
+            em.merge(factura);
         
     }
     
-    public Detalle porId(Long id) {
+    public Factura porId(Long id) {
         //return em.find(Producto.class, id);
-        return em.createQuery("select p from Detalle p  where p.id=:id", Detalle.class)
+        return em.createQuery("select p from Factura p  where p.id=:id", Factura.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
    
     public void eliminar(Long id) {
-        Detalle detalle = porId(id);
-        em.remove(detalle);
+        Factura factura = porId(id);
+        em.remove(factura);
     }
     
-    public Optional<Detalle> opcional(Long id) {
+    public Optional<Factura> opcional(Long id) {
         return Optional.ofNullable(porId(id));
     }
    

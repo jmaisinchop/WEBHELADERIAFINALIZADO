@@ -33,22 +33,21 @@
                     <h:outputLabel id="longitud" value="#{pedidoBeans.pedido.longitud}" />
 
 
-                    <h:outputLabel value="detalles" for="detalles"/>
-                    <h:outputLabel id="detalles" value="#{pedidoBeans.pedido.detalles}" />
+
 
                     <h:outputLabel value="total" for="total"/>
                     <h:outputLabel id="total" value="#{pedidoBeans.pedido.total}" />
-                   
-                  
+
+
                     <h:outputLabel value="estado" for="estado"/>
                     <h:selectOneMenu   value="#{pedidoBeans.pedido.estado}" >
                         <f:selectItem itemLabel="-----Seleccione---------- " />
                         <f:selectItem  itemValue="Aceptado" itemLabel="Aceptado" />
-                         <f:selectItem  itemValue="Entregado " itemLabel="Entregado " />
+                        <f:selectItem  itemValue="Entregado " itemLabel="Entregado " />
                         <f:selectItem itemValue="Enviando" itemLabel="Enviando" />
-                         <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
-                       
-                       
+                        <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
+
+
                     </h:selectOneMenu>
 
                     <h:commandButton value="Guardar" action="#{pedidoBeans.guardar}"/>

@@ -32,7 +32,7 @@ public class Pedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente_id",nullable = true)
     private Cliente cliente;
     private double latitud;
     private double longitud;
@@ -43,6 +43,7 @@ public class Pedido implements Serializable {
     private List<Detalle> detalles;
     private double total;
     @OneToOne
+    @JoinColumn(nullable = true)
     private Tarjeta tarjeta;
     
     

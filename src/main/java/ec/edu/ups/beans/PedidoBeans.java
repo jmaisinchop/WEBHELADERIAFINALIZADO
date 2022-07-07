@@ -39,7 +39,7 @@ public class PedidoBeans implements Serializable {
      @EJB
     private ProductoFacade productoFacade ;
     
-    
+     List<Detalle> detalles = new ArrayList<>();
     private Long id;
     private Pedido pedido;
     
@@ -113,6 +113,14 @@ public class PedidoBeans implements Serializable {
         this.categorias = categorias;
     }
 
+    public List<Detalle> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<Detalle> detalles) {
+        this.detalles = detalles;
+    }
+
 
     @Produces
     @RequestScoped
@@ -121,6 +129,7 @@ public class PedidoBeans implements Serializable {
         List<Pedido> prod = pedidoFacade.listar();
         return prod;
     }
+    
 
     public String guardar() {
         try {
@@ -147,6 +156,20 @@ public class PedidoBeans implements Serializable {
             });
         }
         return "formPedido.xhtml";
+    }
+     public String verDeatalles(Long id) {
+         detalles.clear();
+         System.out.println("entra"+id);
+         List<Detalle> detalles1=detalleFacade.listar();
+         for (int i = 0; i < detalles1.size(); i++) {
+                Detalle d = detalles1.get(i);
+                if (d.getPedido().getId() == id) {
+                    detalles.add(d);
+                 
+             }
+         }
+         System.out.println(detalles);
+        return "formDetalles.xhtml?faces-redirect=true";
     }
     
     public void updateStock(Pedido pedido) {
