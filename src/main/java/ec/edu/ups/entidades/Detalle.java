@@ -52,7 +52,6 @@ public class Detalle implements Serializable{
         this.cantidad = cantidad;
         this.precio = precio;
         this.subtotal = subtotal;
-
         this.pedido = pedido;
     }
 
